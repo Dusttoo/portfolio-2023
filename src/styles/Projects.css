@@ -1,0 +1,68 @@
+.projects-section {
+    padding: 4rem;
+    background: linear-gradient(to top, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+    height: 100vh;
+    border-top: 5px solid var(--teal-bright);
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--teal-bright);
+    font-family: var(--font-secondary);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--navy-background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+    color: var(--green-rich);
+}
+
+.project-info h3 {
+    margin-top: 0;
+    color: var(--teal-bright);
+}
+
+.project-info a {
+    text-decoration: none;
+    color: var(--teal-bright);
+    transition: color 0.3s ease;
+}
+
+.project-info a:hover {
+    color: var(--green-rich);
+}
+@media screen and (max-width: 768px) {
+    .projects-section {
+        padding: 1rem;
+        /* Even smaller padding for mobile */
+    }
+
+    .project-info {
+        padding: 0.5rem;
+        /* Smaller padding for the project info on mobile */
+    }
+}

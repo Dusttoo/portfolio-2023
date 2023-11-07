@@ -1,0 +1,171 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    width: 250px;
+    /* Adjust as needed */
+    height: 100vh;
+    padding: 1rem;
+    background: linear-gradient(to bottom, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+    color: var(--text-light);
+    z-index: 1000;
+    box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for depth */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth opening and closing */
+}
+
+.navbar-header h1 {
+    font-size: calc(1.5rem + 2vmin);
+    /* Responsive font size */
+    white-space: nowrap;
+    /* Ensures the text stays in a single line */
+    overflow: hidden;
+    /* Hide overflow */
+    text-overflow: ellipsis;
+    /* Add an ellipsis to text that spills over */
+}
+
+.navbar-header p {
+    font-size: calc(0.8rem + 1vmin);
+    /* Responsive font size */
+    margin: 0.3rem 0;
+    /* Reduced margin for tighter spacing */
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    list-style: none;
+    /* Remove bullet points */
+}
+
+.side-nav a {
+    text-transform: uppercase;
+    /* Trendy uppercase look */
+    font-weight: bold;
+    /* Makes it pop out more */
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    /* Rounded edges for a softer look */
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+.side-nav a:hover,
+.side-nav a.active {
+    background-color: var(--teal-bright);
+    /* Highlight for active/hover state */
+    color: var(--navy-background);
+    text-decoration: none;
+    /* No underline */
+}
+
+.social-media {
+    margin-top: auto;
+    /* Pushes the social media links to the bottom */
+    padding: 1rem 0;
+    display: flex;
+}
+
+.social-media a {
+    display: block;
+    color: var(--text-light);
+    /* Or any other color */
+    margin-bottom: 0.5rem;
+    /* Space out the icons */
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: var(--teal-bright);
+    /* Change to hover color */
+}
+
+/* Adjust the size and spacing of icons as needed */
+.social-media svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        transform: translateX(-100%);
+        /* Hide navbar on smaller screens */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar.open {
+        transform: translateX(0);
+        /* Show navbar when menu icon is clicked */
+    }
+
+    .navbar-header {
+        padding: 0.5rem;
+        /* Reduce padding on smaller screens */
+    }
+
+    .navbar-header h1,
+    .navbar-header p {
+        font-size: calc(1rem + 2vmin);
+        /* Smaller font size for mobile */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        /* Full width on smaller screens */
+        transform: translateX(-100%);
+        /* Hide navbar on smaller screens */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar.open {
+        transform: translateX(0);
+        /* Show navbar when menu icon is clicked */
+    }
+
+    .navbar-header h1,
+    .navbar-header p {
+        font-size: smaller;
+        /* Adjust font size for smaller screens */
+    }
+
+    .social-media {
+        justify-content: center;
+        /* Center the social media links */
+    }
+
+    .side-nav a {
+        font-size: smaller;
+        /* Smaller text for navigation links */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem;
+        /* Less padding for very small screens */
+    }
+
+    .side-nav {
+        padding: 0.5rem 0;
+        /* Less padding around nav links */
+    }
+
+    .side-nav a {
+        padding: 0.3rem 0.5rem;
+        /* Smaller padding for nav links */
+    }
+
+    .social-media svg {
+        width: 1em;
+        /* Smaller icons for very small screens */
+        height: 1em;
+    }
+}

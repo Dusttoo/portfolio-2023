@@ -1,0 +1,61 @@
+.experience-section {
+    padding: 6rem;
+    /* Reduced padding */
+    background: linear-gradient(to bottom, var(--background-light) 0%, var(--navy-background) 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    /* Use min-height for flexibility */
+}
+
+.experience-section h2 {
+    font-size: calc(2rem + 1vmin);
+    /* Responsive font size */
+    margin-bottom: 1rem;
+    /* Adjusted spacing */
+}
+
+.experience-item {
+    margin-bottom: 2rem;
+    /* Adjusted spacing */
+    border-left: 4px solid var(--teal-bright);
+    padding-left: 1rem;
+}
+
+.experience-item h3 {
+    font-size: calc(1.25rem + 0.5vmin);
+    /* Responsive font size */
+}
+
+.experience-item .experience-duration {
+    font-style: italic;
+}
+
+.experience-item ul {
+    padding-left: 1.5rem;
+}
+
+.experience-item li {
+    margin-bottom: 0.5rem;
+}
+
+.experience-item li::before {
+    content: '•';
+    position: absolute;
+    left: -1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .experience-section {
+        padding: 1rem;
+        /* Even smaller padding for mobile */
+    }
+
+    .experience-item {
+        padding-left: 0.5rem;
+    }
+
+    .experience-item li::before {
+        left: -1rem;
+        /* Adjust bullet position for smaller screens */
+    }
+}
