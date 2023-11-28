@@ -18,7 +18,6 @@
   cursor: pointer;
   z-index: 100;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  /* Hide button initially, it will be shown based on the scroll position */
   display: none;
 }
 
@@ -28,7 +27,6 @@
 
 @media screen and (max-width: 768px) {
 
-  /* Adjust button size and position for mobile */
   .back-to-top {
     width: 30px;
     height: 30px;

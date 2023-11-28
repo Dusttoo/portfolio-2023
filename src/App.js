@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
@@ -57,17 +57,14 @@ function App() {
     };
 
   const scrollToPreviousSection = () => {
-    // Assuming 'sectionIds' is an array of your section ids ordered as they appear on the page
     const currentIndex = sectionIds.findIndex((id) => id === activeSection);
     const previousSection =
       currentIndex > 0 ? sectionIds[currentIndex - 1] : sectionIds[0];
 
-    // Using 'react-scroll' to navigate to the specific section
-    // Replace '500' with the duration of scroll animation in milliseconds
     scroller.scrollTo(previousSection, {
       duration: 500,
       smooth: true,
-      offset: -70, // Adjust this value based on your fixed header height or other factors
+      offset: -70, 
     });
   };
   return (

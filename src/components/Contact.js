@@ -27,11 +27,9 @@ function Contact() {
     });
 
     if (response.ok) {
-      // Reset form or show a success message
       setFormData({ name: "", email: "", message: "" });
       alert("Message sent successfully!");
     } else {
-      // Handle errors
       alert("An error occurred. Please try again.");
     }
   };

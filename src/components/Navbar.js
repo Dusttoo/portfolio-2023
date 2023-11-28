@@ -40,7 +40,7 @@ function Navbar() {
   };
 
   const toggleNav = () => {
-    setIsNavOpen(!isNavOpen); // Toggle the state
+    setIsNavOpen(!isNavOpen);
   };
 
   return (

@@ -5,9 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    /* Ensure it starts from the very left */
     width: 200px;
-    /* Adjust the width as needed */
     height: 100vh;
     padding: 1rem;
     background: var(--background-gradient-end);
@@ -16,7 +14,6 @@
     box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
     overflow-y: auto;
-    /* Add scroll to navbar if content overflows */
 }
 
 .nav-toggle-container {
@@ -28,40 +25,29 @@
 
 .navbar-toggle {
     display: none;
-    /* Hide the toggle button on larger screens */
     position: fixed;
     top: 1rem;
-    /* Adjust as needed */
     left: 1rem;
-    /* Adjust as needed */
     z-index: 2000;
-    /* Ensure it's above other content */
 }
 
 .navbar-header h1 {
     font-family: 'Press Start 2P', cursive;
     font-size: 1.5rem;
-    /* Adjusted for better fit */
     margin-bottom: 0.5rem;
     color: var(--accent-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-header p {
-    /* font-family: 'Pixelify Sans', cursive; */
     font-size: 0.875rem;
     color: var(--text-secondary);
 }
 
 .side-nav {
-    /* font-family: 'Press Start 2P', cursive; */
-    /* Pixelated font for navigation links */
     font-size: 0.75rem;
-    /* Smaller font size for a less bulky appearance */
     padding: 0.5rem;
-    /* Reduced padding */
     margin: 0.2rem 0;
-    /* Reduced margin */
     display: flex;
     flex-direction: column;
 }
@@ -71,9 +57,7 @@
     font-weight: bold;
     color: var(--text-primary);
     padding: 0.5rem 1rem;
-    /* Adjusted padding */
     margin: 0.3rem 0;
-    /* Adjusted margin */
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
     text-decoration: none;
@@ -113,7 +97,6 @@
 @media screen and (max-width: 768px) {
     .navbar-toggle {
         display: block;
-        /* Show the toggle button on smaller screens */
     }
 
     .navbar {
@@ -132,7 +115,6 @@
     .navbar-header p,
     .side-nav a {
         font-size: 0.75rem;
-        /* Even smaller font size on mobile */
     }
 
     .social-media {
@@ -153,7 +135,6 @@
 @media screen and (max-width: 480px) {
     .navbar {
         width: 100%;
-        /* Full width on smaller screens */
         transform: translateX(-100%);
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;

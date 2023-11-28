@@ -31,17 +31,13 @@
 
 .skill-category {
     display: flex;
-    /* Added */
     flex-direction: column;
-    /* Added */
     justify-content: space-between;
-    /* Added */
     background: var(--background-light);
     border: 3px solid var(--accent-color);
     padding: 1rem;
     border-radius: 8px;
-        min-height: 50px;
-    /* Changed from auto to 100% */
+    min-height: 50px;
     width: 200px;
     margin-bottom: 1rem;
 }
@@ -49,7 +45,6 @@
 .category-title,
 .skills-list {
     flex: 1;
-    /* Added */
 }
 
 .category-title {
@@ -72,13 +67,9 @@
     font-size: 0.8rem;
     text-align: left;
     white-space: nowrap;
-    /* Ensures the text is on a single line */
     overflow: hidden;
-    /* Hide overflow */
     text-overflow: ellipsis;
-    /* Add an ellipsis to text that spills over */
     max-width: 90%;
-    /* Set a max-width to prevent overflow */
     position: relative;
 }
 
@@ -88,26 +79,17 @@
 
 .skill-item:hover::after {
     content: attr(data-tooltip);
-    /* Use the data attribute for the tooltip content */
     position: absolute;
     left: 100%;
-    /* Position to the right of the item */
     top: 0;
     white-space: nowrap;
-    /* Prevent the tooltip text from wrapping */
     background-color: #333;
-    /* Tooltip background */
     color: #fff;
-    /* Tooltip text color */
     padding: 5px;
-    /* Padding around the tooltip text */
     border-radius: 5px;
-    /* Rounded corners for the tooltip */
     z-index: 10;
-    /* Ensure the tooltip is above other items */
 }
 
-/* Proficiency colors */
 .beginner {
     color: #dddddd;
 }
@@ -176,7 +158,6 @@
     background-color: #26a69a;
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
     .skill-key {
         flex-direction: column;
@@ -202,7 +183,6 @@
 
     .skill-item {
         font-size: 0.8em;
-        /* Adjust font size if needed */
         max-width: 95%;
     }
 }

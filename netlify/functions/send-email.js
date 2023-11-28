@@ -1,6 +1,5 @@
 const sgMail = require("@sendgrid/mail");
 
-// Set the SendGrid API key
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.handler = async (event) => {
@@ -11,8 +10,8 @@ exports.handler = async (event) => {
   const data = JSON.parse(event.body);
 
   const msg = {
-    to: process.env.EMAIL_TO, // Your email where you want to receive emails
-    from: data.email, // Use the email provided in the form
+    to: process.env.EMAIL_TO,
+    from: data.email,
     subject: `New Contact from ${data.name}`,
     text: data.message,
     html: `<strong>${data.message}</strong>`,

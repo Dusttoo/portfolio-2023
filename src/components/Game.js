@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../styles/Game.css";
 import frenchieToken from "../assets/frenchie-token.png";
-import hydrantIcon from "../assets/hydrant-icon.png"
-
+import hydrantIcon from "../assets/hydrant-icon.png";
 
 function Game() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -16,15 +15,24 @@ function Game() {
 
   const isJumping = useRef(false);
 
+  const calculateSpeed = () => {
+    let baseSpeed = 10;
+    let speedIncreaseFactor = 2;
+    return (
+      baseSpeed + Math.floor(currentScore.current / 5) * speedIncreaseFactor
+    );
+  };
+
   useEffect(() => {
     if (!isPlaying) return;
 
-    let obstacleTimerId;
     const frenchie = document.getElementById("frenchie");
     const obstacle = document.getElementById("obstacle");
 
+    let obstacleTimerId;
     let gravity = 0.9;
     let position = 0;
+    let obstacleLeft = 600;
 
     function jump() {
       let count = 0;
@@ -34,7 +42,7 @@ function Game() {
           let downTimerId = setInterval(() => {
             if (count === 0) {
               clearInterval(downTimerId);
-              isJumping.current = false; 
+              isJumping.current = false;
             }
             position -= 5;
             count--;
@@ -60,25 +68,13 @@ function Game() {
     }
 
     function moveObstacle() {
-      let obstacleLeft = 600; 
-      let baseSpeed = 10; 
-      let speedIncreaseFactor = 2; 
-
-      currentScore.current = score; 
-
-      const calculateSpeed = () => {
-        return (
-          baseSpeed + Math.floor(currentScore.current / 5) * speedIncreaseFactor
-        );
-      };
-
-      const move = () => {
+      obstacleTimerId = setInterval(() => {
         obstacleLeft -= calculateSpeed(); 
         obstacle.style.left = obstacleLeft + "px";
 
         if (obstacleLeft <= 0) {
-          setScore((prevScore) => prevScore + 1); 
           obstacleLeft = 600; 
+          setScore((prevScore) => prevScore + 1); 
         }
 
         if (obstacleLeft < 60 && position < 60) {
@@ -86,18 +82,12 @@ function Game() {
           setIsPlaying(false);
           setGameOver(true);
         }
-      };
-
-      let obstacleTimerId = setInterval(move, 20); 
-
-      return () => {
-        clearInterval(obstacleTimerId);
-      };
+      }, 20);
     }
 
+    moveObstacle();
 
     document.addEventListener("keydown", handleKeyDown);
-    moveObstacle();
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
