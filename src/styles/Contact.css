@@ -1,50 +1,75 @@
 .contact-section {
-    padding: 6rem;
-    /* Reduced padding */
-    background: linear-gradient(to bottom, var(--background-light) 0%, var(--navy-background) 100%);
+    padding: 4rem;
+    background: linear-gradient(to bottom, var(--background-gradient-end) 0%, var(--background-gradient-start) 100%);
     min-height: 100vh;
-    /* Use min-height for flexibility */
     text-align: center;
+    color: var(--text-primary);
+    border-top: 5px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-email {
+    all: unset;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+.contact-email:hover {
+    all: unset;
+    color: var(--text-primary);
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .contact-section h2 {
     font-size: calc(2rem + 1vmin);
-    /* Responsive font size */
-    margin-bottom: 1rem;
-    /* Adjusted margin */
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        font-family: 'Press Start 2P', cursive;
+}
+
+.contact-form {
+    width: 70%;
 }
 
 .contact-form input,
 .contact-form textarea {
-    background-color: var(--navy-background);
-    color: var(--text-light);
-    border: 1px solid var(--teal-bright);
-    /* Consistent with the theme */
-    padding: 0.8rem;
-    /* Increased padding for touch targets */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--accent-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
 }
 
 .contact-form button {
-    background-color: var(--teal-bright);
-    color: var(--text-light);
-    padding: 0.8rem 1.6rem;
-    /* Increased padding for a larger button */
-    font-size: calc(0.8rem + 0.5vmin);
-    /* Responsive font size */
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    padding: 1rem 2rem;
+    font-size: calc(1rem + 0.5vmin);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form button:hover {
+    background-color: var(--button-hover-color);
 }
 
 @media screen and (max-width: 768px) {
     .contact-section {
         padding: 2rem;
-        /* Smaller padding for mobile */
     }
 
     .contact-form input,
     .contact-form textarea,
     .contact-form button {
         width: 100%;
-        /* Full width inputs and button on mobile */
-        /* margin: 0.5rem rem; */
-        /* Adjust spacing between form elements */
+        padding: 1rem;
     }
 }

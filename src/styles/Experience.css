@@ -1,61 +1,79 @@
 .experience-section {
-    padding: 6rem;
-    /* Reduced padding */
-    background: linear-gradient(to bottom, var(--background-light) 0%, var(--navy-background) 100%);
-    color: var(--text-light);
+    padding: 4rem;
+    background: linear-gradient(to bottom, var(--background-gradient-end) 0%, var(--background-gradient-start) 100%);
+    color: var(--text-primary);
     min-height: 100vh;
-    /* Use min-height for flexibility */
+    border-top: 5px solid var(--accent-color);
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .experience-section h2 {
     font-size: calc(2rem + 1vmin);
-    /* Responsive font size */
-    margin-bottom: 1rem;
-    /* Adjusted spacing */
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        font-family: 'Press Start 2P', cursive;
 }
 
 .experience-item {
-    margin-bottom: 2rem;
-    /* Adjusted spacing */
-    border-left: 4px solid var(--teal-bright);
-    padding-left: 1rem;
+    margin-bottom: 3rem;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 2rem;
+    position: relative;
+    margin-left: 1rem;
+    width: 75%;
 }
 
 .experience-item h3 {
-    font-size: calc(1.25rem + 0.5vmin);
-    /* Responsive font size */
+    font-size: calc(1.5rem + 0.5vmin);
+    color: var(--text-secondary);
 }
 
 .experience-item .experience-duration {
     font-style: italic;
+    color: var(--text-secondary);
 }
 
 .experience-item ul {
-    padding-left: 1.5rem;
+    list-style: none;
+    padding-left: 1rem;
 }
 
 .experience-item li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    text-align: left;
 }
 
 .experience-item li::before {
     content: '•';
+    color: var(--accent-color);
     position: absolute;
-    left: -1.5rem;
+    left: 0;
+    font-size: 1.5em;
+    line-height: 0.5;
 }
 
 @media screen and (max-width: 768px) {
     .experience-section {
-        padding: 1rem;
-        /* Even smaller padding for mobile */
+        padding: 2rem;
     }
 
     .experience-item {
-        padding-left: 0.5rem;
+        padding-left: 1rem;
+    }
+
+    .experience-item li {
+        padding-left: 1rem;
     }
 
     .experience-item li::before {
-        left: -1rem;
-        /* Adjust bullet position for smaller screens */
+        left: 0;
     }
 }

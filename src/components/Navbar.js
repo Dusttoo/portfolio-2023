@@ -4,14 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
   faGithub,
-  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navbar.css";
 
-const sectionIds = ["home", "about", "experience", "projects", "contact"];
+const sectionIds = ["home", "skills", "about", "experience", "projects", "contact"];
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,51 +39,56 @@ function Navbar() {
     return current;
   };
 
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen); // Toggle the state
+  };
+
   return (
-    <header className="navbar">
-      <div className="navbar-header">
-        <h1>Dusty Mumphrey</h1>
-        <p>Full Stack Software Engineer</p>
-        <p>Your professional tagline or description.</p>
-      </div>
-      <nav className="side-nav">
-        {sectionIds.map((id) => (
-          <Link
-            key={id}
-            to={id}
-            smooth={true}
-            duration={500}
-            className={activeSection === id ? "active" : ""}
+    <>
+      <button
+        onClick={toggleNav}
+        className={`navbar-toggle ${isNavOpen ? "open" : ""}`}
+      >
+        <FontAwesomeIcon icon={faBars} />
+      </button>
+      <header className={`navbar ${isNavOpen ? "open" : ""}`}>
+        <div className="navbar-header">
+          <h1>Dusty Mumphrey</h1>
+          <p>Full Stack Software Engineer</p>
+          <p>Your professional tagline or description.</p>
+        </div>
+        <nav className="side-nav">
+          {sectionIds.map((id) => (
+            <Link
+              key={id}
+              to={id}
+              smooth={true}
+              duration={500}
+              className={activeSection === id ? "active" : ""}
+              onClick={() => setIsNavOpen(false)}
+            >
+              {id.charAt(0).toUpperCase() + id.slice(1)}
+            </Link>
+          ))}
+        </nav>
+        <div className="social-media">
+          <a
+            href="https://linkedin.com/in/dusty-mumphrey"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {id.charAt(0).toUpperCase() + id.slice(1)}
-          </Link>
-        ))}
-      </nav>
-      <div className="social-media">
-        <a
-          href="https://linkedin.com/in/yourprofile"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon icon={faLinkedin} />
-        </a>
-        <a
-          href="https://github.com/yourprofile"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon icon={faGithub} />
-        </a>
-        <a
-          href="https://twitter.com/yourprofile"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon icon={faTwitter} />
-        </a>
-        {/* ... other social media links */}
-      </div>
-    </header>
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a
+            href="https://github.com/dusttoo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+        </div>
+      </header>
+    </>
   );
 }
 

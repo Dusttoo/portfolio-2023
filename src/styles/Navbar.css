@@ -1,171 +1,174 @@
 .navbar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     position: fixed;
     top: 0;
-    width: 250px;
-    /* Adjust as needed */
+    left: 0;
+    /* Ensure it starts from the very left */
+    width: 200px;
+    /* Adjust the width as needed */
     height: 100vh;
     padding: 1rem;
-    background: linear-gradient(to bottom, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
-    color: var(--text-light);
+    background: var(--background-gradient-end);
+    color: var(--text-primary);
     z-index: 1000;
     box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.2);
-    /* Soft shadow for depth */
     transition: transform 0.3s ease-in-out;
-    /* Smooth opening and closing */
+    overflow-y: auto;
+    /* Add scroll to navbar if content overflows */
+}
+
+.nav-toggle-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.navbar-toggle {
+    display: none;
+    /* Hide the toggle button on larger screens */
+    position: fixed;
+    top: 1rem;
+    /* Adjust as needed */
+    left: 1rem;
+    /* Adjust as needed */
+    z-index: 2000;
+    /* Ensure it's above other content */
 }
 
 .navbar-header h1 {
-    font-size: calc(1.5rem + 2vmin);
-    /* Responsive font size */
-    white-space: nowrap;
-    /* Ensures the text stays in a single line */
-    overflow: hidden;
-    /* Hide overflow */
-    text-overflow: ellipsis;
-    /* Add an ellipsis to text that spills over */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    /* Adjusted for better fit */
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-header p {
-    font-size: calc(0.8rem + 1vmin);
-    /* Responsive font size */
-    margin: 0.3rem 0;
-    /* Reduced margin for tighter spacing */
+    /* font-family: 'Pixelify Sans', cursive; */
+    font-size: 0.875rem;
+    color: var(--text-secondary);
 }
 
 .side-nav {
+    /* font-family: 'Press Start 2P', cursive; */
+    /* Pixelated font for navigation links */
+    font-size: 0.75rem;
+    /* Smaller font size for a less bulky appearance */
+    padding: 0.5rem;
+    /* Reduced padding */
+    margin: 0.2rem 0;
+    /* Reduced margin */
     display: flex;
     flex-direction: column;
-    padding: 1rem 0;
-    list-style: none;
-    /* Remove bullet points */
 }
 
 .side-nav a {
     text-transform: uppercase;
-    /* Trendy uppercase look */
     font-weight: bold;
-    /* Makes it pop out more */
-    color: var(--text-light);
+    color: var(--text-primary);
     padding: 0.5rem 1rem;
+    /* Adjusted padding */
+    margin: 0.3rem 0;
+    /* Adjusted margin */
     border-radius: 4px;
-    /* Rounded edges for a softer look */
     transition: background-color 0.3s, color 0.3s;
-    /* Smooth transition for hover effect */
+    text-decoration: none;
 }
 
 .side-nav a:hover,
 .side-nav a.active {
-    background-color: var(--teal-bright);
-    /* Highlight for active/hover state */
-    color: var(--navy-background);
-    text-decoration: none;
-    /* No underline */
+    background-color: var(--accent-color);
+    color: var(--background-gradient-end);
+    font-family: 'Press Start 2P', cursive;
+    font-size: .5rem;
+
 }
 
 .social-media {
     margin-top: auto;
-    /* Pushes the social media links to the bottom */
     padding: 1rem 0;
     display: flex;
 }
 
 .social-media a {
     display: block;
-    color: var(--text-light);
-    /* Or any other color */
-    margin-bottom: 0.5rem;
-    /* Space out the icons */
+    color: var(--text-primary);
+    margin: .25rem;
     transition: color 0.3s;
 }
 
 .social-media a:hover {
-    color: var(--teal-bright);
-    /* Change to hover color */
+    color: var(--accent-color);
 }
 
-/* Adjust the size and spacing of icons as needed */
 .social-media svg {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.75em;
+    height: 1.75em;
 }
 
 @media screen and (max-width: 768px) {
-    .navbar {
-        transform: translateX(-100%);
-        /* Hide navbar on smaller screens */
-        transition: transform 0.3s ease-in-out;
+    .navbar-toggle {
+        display: block;
+        /* Show the toggle button on smaller screens */
     }
 
-    .navbar.open {
-        transform: translateX(0);
-        /* Show navbar when menu icon is clicked */
-    }
-
-    .navbar-header {
-        padding: 0.5rem;
-        /* Reduce padding on smaller screens */
-    }
-
-    .navbar-header h1,
-    .navbar-header p {
-        font-size: calc(1rem + 2vmin);
-        /* Smaller font size for mobile */
-    }
-}
-
-@media screen and (max-width: 768px) {
     .navbar {
         width: 100%;
-        /* Full width on smaller screens */
         transform: translateX(-100%);
-        /* Hide navbar on smaller screens */
         transition: transform 0.3s ease-in-out;
+        padding-top: 3rem;
+        padding-bottom: 0.5rem;
     }
 
     .navbar.open {
         transform: translateX(0);
-        /* Show navbar when menu icon is clicked */
     }
 
     .navbar-header h1,
-    .navbar-header p {
-        font-size: smaller;
-        /* Adjust font size for smaller screens */
+    .navbar-header p,
+    .side-nav a {
+        font-size: 0.75rem;
+        /* Even smaller font size on mobile */
     }
 
     .social-media {
         justify-content: center;
-        /* Center the social media links */
+        padding: 0.5rem 0;
     }
 
-    .side-nav a {
-        font-size: smaller;
-        /* Smaller text for navigation links */
+        .social-media a {
+            margin-bottom: 3rem;
+        }
+
+    .social-media svg {
+        width: 1.5em;
+        height: 1.5em;
     }
 }
 
 @media screen and (max-width: 480px) {
     .navbar {
-        padding: 0.5rem;
-        /* Less padding for very small screens */
+        width: 100%;
+        /* Full width on smaller screens */
+        transform: translateX(-100%);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
     }
 
     .side-nav {
         padding: 0.5rem 0;
-        /* Less padding around nav links */
     }
 
     .side-nav a {
         padding: 0.3rem 0.5rem;
-        /* Smaller padding for nav links */
     }
 
     .social-media svg {
-        width: 1em;
-        /* Smaller icons for very small screens */
-        height: 1em;
+        width: 1.25em;
+        height: 1.25em;
     }
 }

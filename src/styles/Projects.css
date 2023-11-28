@@ -1,68 +1,77 @@
 .projects-section {
     padding: 4rem;
-    background: linear-gradient(to top, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
-    height: 100vh;
-    border-top: 5px solid var(--teal-bright);
+    background: linear-gradient(to bottom, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+    min-height: 100vh;
+    border-top: 5px solid var(--accent-color);
+    color: var(--text-primary);
+    text-align: center;
 }
 
 .projects-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--teal-bright);
-    font-family: var(--font-secondary);
+    font-size: calc(2rem + 1vmin);
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        font-family: 'Press Start 2P', cursive;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
+    padding: 2rem;
 }
 
 .project-card {
-    background-color: var(--navy-background);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
+    color: var(--text-secondary);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .project-image {
     width: 100%;
-    display: block;
+    height: auto;
     object-fit: cover;
 }
 
 .project-info {
-    padding: 1.5rem;
-    color: var(--green-rich);
+    padding: 2rem;
 }
 
 .project-info h3 {
-    margin-top: 0;
-    color: var(--teal-bright);
+    color: var(--accent-color);
 }
 
 .project-info a {
     text-decoration: none;
-    color: var(--teal-bright);
+    color: var(--background-gradient-end);
     transition: color 0.3s ease;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: inline-block;
 }
 
 .project-info a:hover {
-    color: var(--green-rich);
+    color: white;
 }
+
 @media screen and (max-width: 768px) {
     .projects-section {
-        padding: 1rem;
-        /* Even smaller padding for mobile */
+        padding: 2rem;
+    }
+
+    .projects-grid {
+        gap: 1rem;
     }
 
     .project-info {
-        padding: 0.5rem;
-        /* Smaller padding for the project info on mobile */
+        padding: 1rem;
     }
 }

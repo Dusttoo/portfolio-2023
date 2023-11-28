@@ -1,3 +1,38 @@
 .App {
   text-align: center;
 }
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent-color);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /* Hide button initially, it will be shown based on the scroll position */
+  display: none;
+}
+
+.back-to-top.show {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+
+  /* Adjust button size and position for mobile */
+  .back-to-top {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: 10px;
+  }
+}

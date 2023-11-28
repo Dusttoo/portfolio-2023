@@ -1,0 +1,108 @@
+{skills: {[
+  {
+    category: "Languages",
+    skills: [
+      { name: "Python", proficiency: "expert" },
+      { name: "JavaScript", proficiency: "advanced" },
+      { name: "TypeScript", proficiency: "intermediate" },
+      { name: "C#", proficiency: "intermediate" },
+    ],
+  },
+  {
+    category: "Frontend",
+    skills: [
+      { name: "React/ReactJS", proficiency: "expert" },
+      { name: "Redux", proficiency: "advanced" },
+      { name: "Next.js", proficiency: "intermediate" },
+      { name: "jQuery", proficiency: "advanced" },
+    ],
+  },
+  {
+    category: "Backend",
+    skills: [
+      { name: "Node/NodeJS", proficiency: "expert" },
+      { name: "Flask", proficiency: "intermediate" },
+      { name: "Django", proficiency: "advanced" },
+      { name: ".NET Core", proficiency: "intermediate" },
+    ],
+  },
+  {
+    category: "Mobile Development",
+    skills: [
+      { name: "Xamarin", proficiency: "beginner" },
+      { name: "React Native", proficiency: "intermediate" },
+    ],
+  },
+  {
+    category: "Databases",
+    skills: [
+      { name: "MySQL", proficiency: "expert" },
+      { name: "PostgreSQL", proficiency: "advanced" },
+      { name: "SQL Server", proficiency: "intermediate" },
+      { name: "NoSQL", proficiency: "intermediate" },
+      { name: "ElasticSearch", proficiency: "beginner" },
+    ],
+  },
+  {
+    category: "Testing & QA",
+    skills: [
+      { name: "TDD (Test-Driven Development)", proficiency: "advanced" },
+      { name: "Jasmine", proficiency: "intermediate" },
+      { name: "Jest", proficiency: "advanced" },
+      { name: "PyTest", proficiency: "intermediate" },
+      { name: "Unit Testing", proficiency: "expert" },
+      { name: "Regression Testing", proficiency: "advanced" },
+      { name: "Integration Testing", proficiency: "advanced" },
+      { name: "E2E Testing", proficiency: "intermediate" },
+    ],
+  },
+  {
+    category: "DevOps & CI/CD",
+    skills: [
+      { name: "Docker", proficiency: "advanced" },
+      { name: "Kubernetes", proficiency: "intermediate" },
+      { name: "CI/CD", proficiency: "advanced" },
+      { name: "AWS (various services)", proficiency: "intermediate" },
+      { name: "Azure", proficiency: "beginner" },
+    ],
+  },
+  {
+    category: "Version Control & Collaboration",
+    skills: [
+      { name: "Git", proficiency: "expert" },
+      { name: "Agile methodologies", proficiency: "advanced" },
+    ],
+  },
+  {
+    category: "APIs & Architectures",
+    skills: [
+      { name: "RESTful APIs", proficiency: "expert" },
+      { name: "GraphQL", proficiency: "intermediate" },
+      { name: "SOAP", proficiency: "beginner" },
+      { name: "microservices architecture", proficiency: "advanced" },
+      { name: "SaaS", proficiency: "intermediate" },
+    ],
+  },
+  {
+    category: "Programming Principles & Patterns",
+    skills: [
+      { name: "OOP (Object-Oriented Programming)", proficiency: "expert" },
+      { name: "Design patterns", proficiency: "advanced" },
+      { name: "SOLID principles", proficiency: "advanced" },
+    ],
+  },
+  {
+    category: "Security & Authorization",
+    skills: [
+      { name: "JWT (JSON Web Tokens)", proficiency: "advanced" },
+      { name: "OAuth", proficiency: "intermediate" },
+    ],
+  },
+  {
+    category: "Miscellaneous",
+    skills: [
+      { name: "ORM (Object-Relational Mapping)", proficiency: "intermediate" },
+      { name: "HTTP protocol", proficiency: "advanced" },
+      { name: "Query Optimization", proficiency: "intermediate" },
+      { name: "Kafka", proficiency: "beginner" },
+    ]}}
