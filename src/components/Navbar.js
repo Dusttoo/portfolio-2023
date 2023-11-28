@@ -55,7 +55,10 @@ function Navbar() {
         <div className="navbar-header">
           <h1>Dusty Mumphrey</h1>
           <p>Full Stack Software Engineer</p>
-          <p>Your professional tagline or description.</p>
+          <p>
+            Full Stack Software Engineer | Innovative Solutions, Impactful
+            Results
+          </p>
         </div>
         <nav className="side-nav">
           {sectionIds.map((id) => (
