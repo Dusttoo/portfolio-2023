@@ -57,24 +57,36 @@ function Game() {
       }, 20);
     }
 
-    function handleKeyDown(event) {
-      if (event.keyCode === 32) {
-        event.preventDefault();
-        if (!isJumping.current) {
-          isJumping.current = true;
-          jump();
-        }
+    function handleJumpStart() {
+      if (!isJumping.current) {
+        isJumping.current = true;
+        jump();
       }
     }
 
+    function handleKeyDown(event) {
+      if (event.keyCode === 32) {
+        event.preventDefault();
+        handleJumpStart();
+      }
+    }
+
+    function handleTouchStart(event) {
+      event.preventDefault();
+      handleJumpStart();
+    }
+
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("keydown", handleKeyDown);
+
     function moveObstacle() {
       obstacleTimerId = setInterval(() => {
-        obstacleLeft -= calculateSpeed(); 
+        obstacleLeft -= calculateSpeed();
         obstacle.style.left = obstacleLeft + "px";
 
         if (obstacleLeft <= 0) {
-          obstacleLeft = 600; 
-          setScore((prevScore) => prevScore + 1); 
+          obstacleLeft = 600;
+          setScore((prevScore) => prevScore + 1);
         }
 
         if (obstacleLeft < 60 && position < 60) {
@@ -87,9 +99,8 @@ function Game() {
 
     moveObstacle();
 
-    document.addEventListener("keydown", handleKeyDown);
-
     return () => {
+      document.removeEventListener("touchstart", handleTouchStart);
       document.removeEventListener("keydown", handleKeyDown);
       if (obstacleTimerId) {
         clearInterval(obstacleTimerId);
