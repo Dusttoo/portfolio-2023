@@ -15,3 +15,8 @@
   to = "/.netlify/identity"
   status = 200
   force = true
+
+[[headers]]
+  for = "*.yml"
+  [headers.values]
+    Content-Type = "text/yaml"
