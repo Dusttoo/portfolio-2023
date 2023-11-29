@@ -12,15 +12,8 @@
     color: var(--text-primary);
     z-index: 1000;
     box-shadow: 3px 0px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+    transition: var(--transform-transition);
     overflow-y: auto;
-}
-
-.nav-toggle-container {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    padding-bottom: 1rem;
 }
 
 .navbar-toggle {
@@ -32,11 +25,11 @@
 }
 
 .navbar-header h1 {
-    font-family: 'Press Start 2P', cursive;
+    font-family: var(--pixel);
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--accent-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: var(--section-header-shadow);
 }
 
 .navbar-header p {
@@ -67,7 +60,7 @@
 .side-nav a.active {
     background-color: var(--accent-color);
     color: var(--background-gradient-end);
-    font-family: 'Press Start 2P', cursive;
+    font-family: var(--pixel);
     font-size: .5rem;
 
 }
@@ -98,11 +91,13 @@
     .navbar-toggle {
         display: block;
     }
-
+    .navbar-header {
+        width: 80%;
+    }
     .navbar {
         width: 100%;
         transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
+        transition: var(--transform-transition);
         padding-top: 3rem;
         padding-bottom: 0.5rem;
     }

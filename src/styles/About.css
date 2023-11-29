@@ -1,21 +1,16 @@
 .about-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     padding: 4rem;
-    background: linear-gradient(to bottom, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+    background: var(--light-to-dark-gradient);
     color: var(--text-primary);
-    border-top: 5px solid var(--accent-color);
+    border-top: var(--section-divider);
 }
 
 .about-section h2 {
-    font-size: calc(2rem + 1vmin);
+    font-size: var(--section-header);
     margin-bottom: 1rem;
     color: var(--accent-color);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    font-family: 'Press Start 2P', cursive;
+    text-shadow: var(--section-header-shadow);
+    font-family: var(--pixel)
 }
 
 .about-section div {
@@ -25,9 +20,9 @@
     text-align: center;
     margin: auto;
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--background-color);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
 }
@@ -52,5 +47,11 @@
     .about-section p {
         padding: 1rem;
         max-width: 85%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-section h2 {
+        font-size: var(--mobile-header-size)
     }
 }

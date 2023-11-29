@@ -5,7 +5,7 @@ import "../styles/Home.css";
 
 function Home() {
   return (
-    <section className="home" id="home">
+    <section className="home section-container" id="home">
       <div className="intro">
         <img src={headshot} alt="Dusty Mumphrey" className="headshot" />
         <h1>Hi, I'm Dusty</h1>

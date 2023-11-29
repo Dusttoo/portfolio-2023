@@ -1,9 +1,8 @@
 .experience-section {
     padding: 4rem;
-    background: linear-gradient(to bottom, var(--background-gradient-end) 0%, var(--background-gradient-start) 100%);
+    background: var(--dark-to-light-gradient);
     color: var(--text-primary);
-    min-height: 100vh;
-    border-top: 5px solid var(--accent-color);
+    border-top: var(--section-divider);
 }
 
 .experience-list {
@@ -13,11 +12,11 @@
 }
 
 .experience-section h2 {
-    font-size: calc(2rem + 1vmin);
-        margin-bottom: 1rem;
-        color: var(--accent-color);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        font-family: 'Press Start 2P', cursive;
+    font-size: var(--section-header);
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    text-shadow: var(--section-header-shadow);
+    font-family: var(--pixel)
 }
 
 .experience-item {
@@ -75,5 +74,11 @@
 
     .experience-item li::before {
         left: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .experience-section h2 {
+        font-size: var(--mobile-header-size)
     }
 }

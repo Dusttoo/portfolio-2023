@@ -154,7 +154,7 @@ const skillData = [
 
 
   return (
-    <section id="skills" className="skills-section">
+    <section id="skills" className="skills-section section-container">
       <h2>Skills</h2>
       <SkillKey />
       <div className="skills-container">
