@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Game from "./Game";
 import headshot from "../assets/dusty-token.png";
 import "../styles/Home.css";
 
 function Home() {
+   const [isSticky, setIsSticky] = useState(false);
+
+   useEffect(() => {
+     const handleScroll = () => {
+       if (window.scrollY > window.innerHeight) {
+         setIsSticky(true);
+       } else {
+         setIsSticky(false);
+       }
+     };
+
+     // Attach the event listener
+     window.addEventListener("scroll", handleScroll);
+
+     // Remove the event listener on cleanup
+     return () => {
+       window.removeEventListener("scroll", handleScroll);
+     };
+   }, []);
   return (
     <section className="home section-container" id="home">
-      <div className="intro">
-        <img src={headshot} alt="Dusty Mumphrey" className="headshot" />
+      <div className={`intro ${isSticky ? "sticky-avatar" : ""}`}>
+        <img
+          src={headshot}
+          alt="Dusty Mumphrey"
+          className="headshot"
+        />
         <h1>Hi, I'm Dusty</h1>
         <p>
           I'm a full-stack software engineer on a mission to create tech magic

@@ -52,8 +52,52 @@
     box-shadow: var(--box-shadow);
 }
 
+@keyframes jump {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.sticky-avatar .headshot {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    z-index: 10;
+    transition: transform 0.2s;
+    /* cursor: pointer; */
+}
+
+.sticky-avatar .headshot:hover {
+    animation: jump 0.5s ease-in-out infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .sticky-avatar .headshot {
+        width: 70px;
+        height: 70px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .intro h1 {
         font-size: var(--mobile-header-size)
+    }
+
+    .sticky-avatar .headshot {
+        width: 40px !important;
+        height: 40px !important;
+        bottom: 10px;
+        right: 10px;
     }
 }
