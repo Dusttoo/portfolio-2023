@@ -15,6 +15,14 @@ function About() {
           since.
         </p>
         <p className="about-para">
+          🌐 <span className="about-topic">Tech Journey</span> – With experience
+          at startups like Vault Health and Clockwork, I've honed my skills in
+          Python, JavaScript, TypeScript, and more. At Vault Health, I delved
+          into AWS services, Kafka, Docker, and more, while at Clockwork, I've
+          embraced technologies like C#, Xamarin, and Flutter. From healthcare
+          solutions to mobile apps, I've left no tech stone unturned.
+        </p>
+        <p className="about-para">
           💡 <span className="about-topic">Why So Curious?</span> Well, they say
           curiosity killed the cat, but it only makes me more tech-savvy! I'm
           that guy who always asks, "Why not?" and loves digging deep to find
@@ -32,15 +40,15 @@ function About() {
           – In the ever-evolving tech landscape, being adaptable is like having
           a superpower. I've got the ability to pivot, learn, and tackle new
           challenges head-on, whether it's Python, JavaScript, or wrangling a
-          pack of mischievous penguins (I'm kidding... mostly).
+          pack of mischievous French Bulldogs (I'm kidding... mostly).
         </p>
         <p className="about-para">
-          🐧 <span className="about-topic">Penguins & Pandas Enthusiast</span> –
+          🐶 <span className="about-topic">French Bulldogs Enthusiast</span> –
           When I'm not writing code, you might find me hanging out with my
-          favorite penguins (or pandas, you know, depending on the day). I've
-          got a soft spot for our feathered and furry friends, and I'm on a
-          mission to incorporate their efficiency and cuteness into every
-          project I undertake.
+          favorite French Bulldogs (or penguins, you know, depending on the
+          day). I've got a soft spot for our adorable furry friends, and I'm on
+          a mission to incorporate their charm and happiness into every project
+          I undertake.
         </p>
         <p className="about-para">
           💬 <span className="about-topic">Let's Talk Tech!</span> I'm always up
@@ -50,6 +58,7 @@ function About() {
           innovate together.
         </p>
       </div>
+
       <a
         href={resume}
         download="Dusty_Mumphrey_Resume.pdf"
