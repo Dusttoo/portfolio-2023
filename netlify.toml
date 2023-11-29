@@ -1,5 +1,6 @@
 [build]
   functions = "netlify/functions"
+
 [[plugins]]
   package = "@netlify/plugin-emails"
 
@@ -7,8 +8,10 @@
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
+  force = true
 
 [[redirects]]
-  from = "/.netlify/identity"
-  to = "https://identity.netlify.com"
+  from = "/.netlify/identity/*"
+  to = "/.netlify/identity"
   status = 200
+  force = true
