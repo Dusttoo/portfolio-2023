@@ -11,10 +11,10 @@ exports.handler = async (event) => {
 
   const msg = {
     to: process.env.EMAIL_TO,
-    from: data.email,
+    from: 'info@taskingtogether.com',
     subject: `New Contact from ${data.name}`,
     text: data.message,
-    html: `<strong>${data.message}</strong>`,
+    html: `<strong>New Email from: ${data.email}. <br></br>${data.message} </strong>`,
   };
 
   try {
