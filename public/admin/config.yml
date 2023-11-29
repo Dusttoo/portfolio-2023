@@ -4,6 +4,8 @@ backend:
 
 media_folder: "images" 
 
+site_url: https://dustymumphrey.com
+
 collections:
   - name: "blog" 
     label: "Blog" 
