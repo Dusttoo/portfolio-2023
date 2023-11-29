@@ -19,7 +19,7 @@ function Contact() {
     e.preventDefault();
 
     const response = await fetch(
-      "https://dustymumphrey.com/.netlify/functions/emails",
+      "https://dustymumphrey.com/.netlify/functions/send-email",
       {
         method: "POST",
         body: JSON.stringify(formData),
