@@ -2,3 +2,13 @@
   functions = "netlify/functions"
 [[plugins]]
   package = "@netlify/plugin-emails"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/identity"
+  to = "https://identity.netlify.com"
+  status = 200
