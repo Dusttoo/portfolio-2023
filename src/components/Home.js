@@ -15,10 +15,8 @@ function Home() {
        }
      };
 
-     // Attach the event listener
      window.addEventListener("scroll", handleScroll);
 
-     // Remove the event listener on cleanup
      return () => {
        window.removeEventListener("scroll", handleScroll);
      };

@@ -1,10 +1,10 @@
-// BlogPost.js
 import React, { useEffect, useState } from "react";
 import { contentfulClient } from "../services/Contentful";
-import { useParams, Link } from "react-router-dom";
-import "../styles/BlogPost.css"; // Ensure the path to your CSS file is correct
+import { useParams } from "react-router-dom";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { scrollToTop, truncateTitle, formatDate } from "../utils";
+import { scrollToTop } from "../utils";
+import Post from "../components/Post";
+import "../styles/BlogPost.css";
 
 const BlogPost = () => {
   const { postId } = useParams();
@@ -20,7 +20,7 @@ const BlogPost = () => {
       .getEntry(postId)
       .then((entry) => {
         setPost(entry.fields);
-        setRelatedPosts(entry.fields.relatedBlogPosts.splice(0,2));
+        setRelatedPosts(entry.fields.relatedBlogPosts.splice(0, 2));
       })
       .catch(console.error);
   }, [postId]);
@@ -30,7 +30,6 @@ const BlogPost = () => {
   }
 
   const renderContent = (content) => {
-    // If the content from Contentful is rich text, it needs to be rendered as such
     return documentToReactComponents(content);
   };
 
@@ -48,30 +47,7 @@ const BlogPost = () => {
       <h2>Related Posts</h2>
       <div className="related-posts-container">
         {relatedPosts.map((post) => (
-          <article key={post.sys.id} className="related-post-card">
-            {post.fields.featuredImage.fields.file.url && (
-              <img
-                src={post.fields.featuredImage.fields.file.url}
-                alt={post.fields.featuredImage.fields.file.title}
-                className="related-post-thumbnail"
-              />
-            )}
-            <h3 className="related-post-title">
-              {truncateTitle(post.fields.title)}
-            </h3>
-            <p className="related-post-date">
-              {formatDate(post.fields.publishedDate)}
-            </p>
-            <p className="related-post-description">
-              {post.fields.shortDescription}
-            </p>
-            <Link
-              to={`/blog/${post.sys.id}`}
-              className="related-post-read-more"
-            >
-              Read More
-            </Link>
-          </article>
+          <Post post={post} />
         ))}
       </div>
     </div>

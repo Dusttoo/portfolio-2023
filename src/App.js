@@ -24,11 +24,9 @@ function App() {
 
   useEffect(() => {
     contentfulClient.getEntries().then((entries) => {
-      console.log(entries)
       const blogPosts = entries.items.filter(
         (entry) => entry.sys.contentType.sys.id === "pageBlogPost"
       ); 
-      console.log(blogPosts)
       
       setBlogData(blogPosts);
     });
@@ -55,7 +53,6 @@ const getCurrentSection = () => {
   let current = "";
   for (const id of sectionIds) {
     const section = document.getElementById(id);
-    // Check if the section exists before trying to access its properties
     if (
       section &&
       window.scrollY >= section.offsetTop &&
