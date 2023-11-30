@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
@@ -10,37 +11,69 @@ import "../styles/Navbar.css";
 import { sectionIds } from "../data/sections";
 
 function Navbar() {
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState("home");
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setActiveSection(getCurrentSection());
-    };
+    if (location.pathname === "/") {
+      const handleScroll = () => {
+        setActiveSection(getCurrentSection());
+      };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-const getCurrentSection = () => {
-  let current = "";
-  for (const id of sectionIds) {
-    const section = document.getElementById(id);
-    // Check if the section exists before trying to access its properties
-    if (
-      section &&
-      window.scrollY >= section.offsetTop &&
-      window.scrollY < section.offsetTop + section.offsetHeight
-    ) {
-      current = id;
-      break;
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
     }
-  }
-  return current;
-};
+  }, [location.pathname]);
+
+  const getCurrentSection = () => {
+    let current = "";
+    for (const id of sectionIds) {
+      const section = document.getElementById(id);
+      // Check if the section exists before trying to access its properties
+      if (
+        section &&
+        window.scrollY >= section.offsetTop &&
+        window.scrollY < section.offsetTop + section.offsetHeight
+      ) {
+        current = id;
+        break;
+      }
+    }
+    return current;
+  };
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
+  };
+
+  const renderLink = (id) => {
+    if (location.pathname === "/") {
+      return (
+        <ScrollLink
+          to={id}
+          smooth={true}
+          duration={500}
+          className={activeSection === id ? "active" : ""}
+          onClick={() => setIsNavOpen(false)}
+        >
+          {id.charAt(0).toUpperCase() + id.slice(1)}
+        </ScrollLink>
+      );
+    } else {
+      return (
+        <RouterLink
+          to={`/#${id}`}
+          className={activeSection === id ? "active" : ""}
+          onClick={() => {
+            setIsNavOpen(false);
+            scroll.scrollToTop();
+          }}
+        >
+          {id.charAt(0).toUpperCase() + id.slice(1)}
+        </RouterLink>
+      );
+    }
   };
 
   return (
@@ -61,18 +94,7 @@ const getCurrentSection = () => {
           </p>
         </div>
         <nav className="side-nav">
-          {sectionIds.map((id) => (
-            <Link
-              key={id}
-              to={id}
-              smooth={true}
-              duration={500}
-              className={activeSection === id ? "active" : ""}
-              onClick={() => setIsNavOpen(false)}
-            >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
-            </Link>
-          ))}
+          {sectionIds.map((id) => renderLink(id))}
         </nav>
         <div className="social-media">
           <a

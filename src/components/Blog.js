@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { truncateTitle, formatDate } from "../utils";
 import "../styles/Blog.css";
 
 function Blog({ blogData }) {
@@ -11,10 +12,8 @@ function Blog({ blogData }) {
       setItemsPerPage(calculateItemsPerPage());
     };
 
-    // Set initial items per page
     handleResize();
 
-    // Update items per page on window resize
     window.addEventListener("resize", handleResize);
 
     // Cleanup listener
@@ -23,7 +22,7 @@ function Blog({ blogData }) {
 
     const calculateItemsPerPage = () => {
       // Example calculation, assuming each post is 200px wide + 16px gap
-      const postWidth = 216; // 200px width + 16px gap
+      const postWidth = 266; // 200px width + 16px gap
       const containerWidth = document.querySelector(".blog-main").clientWidth;
       return Math.floor(containerWidth / postWidth);
     };
@@ -46,18 +45,7 @@ function Blog({ blogData }) {
   const handleCategoryClick = (category) => {
     // Implement your category filtering logic here
   };
-  const truncateTitle = (title, maxLength = 50) => {
-    console.log(title);
 
-    if (title.length > maxLength) {
-      return title.substr(0, maxLength - 3) + "..."; // '...' represents the truncation
-    }
-    return title;
-  };
-  const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
 
   return (
     <div id="blog" className="blog-page">
