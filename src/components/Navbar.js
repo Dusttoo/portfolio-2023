@@ -7,8 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navbar.css";
-
-const sectionIds = ["home", "skills", "about", "experience", "projects", "contact"];
+import { sectionIds } from "../data/sections";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
@@ -23,21 +22,22 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const getCurrentSection = () => {
-    let current = "";
-    for (const id of sectionIds) {
-      const section = document.getElementById(id);
-      const scrollPosition = window.scrollY;
-      if (
-        section.offsetTop <= scrollPosition &&
-        section.offsetTop + section.offsetHeight > scrollPosition
-      ) {
-        current = id;
-        break;
-      }
+const getCurrentSection = () => {
+  let current = "";
+  for (const id of sectionIds) {
+    const section = document.getElementById(id);
+    // Check if the section exists before trying to access its properties
+    if (
+      section &&
+      window.scrollY >= section.offsetTop &&
+      window.scrollY < section.offsetTop + section.offsetHeight
+    ) {
+      current = id;
+      break;
     }
-    return current;
-  };
+  }
+  return current;
+};
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
