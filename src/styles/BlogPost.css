@@ -43,6 +43,14 @@
     margin-bottom: 1rem;
 }
 
+.blog-post-content h4 {
+    color: var(--accent-color);
+    font-family: var(--pixel);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: .75rem;
+}
+
 .blog-post-image {
     max-width: 100%;
     border-radius: 8px;
@@ -116,6 +124,17 @@
 
 .related-post-read-more:hover {
     background-color: var(--accent-color);
+}
+
+.blog-post-content code,
+.blog-post-content pre {
+    font-size: 0.85rem;
+    overflow-x: auto;
+    text-align: left; 
+}
+.blog-post-content pre {
+    box-shadow: var(--box-shadow);
+    border-radius: 4px;
 }
 
 @media screen and (max-width: 768px) {

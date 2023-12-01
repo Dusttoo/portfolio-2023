@@ -2,14 +2,31 @@ import React, { useEffect, useState } from "react";
 import { contentfulClient } from "../services/Contentful";
 import { useParams } from "react-router-dom";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { scrollToTop } from "../utils";
 import Post from "../components/Post";
 import "../styles/BlogPost.css";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const BlogPost = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
+
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+        if (node.data.target.sys.contentType.sys.id === "codeBlock") {
+          return (
+            <SyntaxHighlighter language="javascript" style={coldarkDark}>
+              {node.data.target.fields.code}
+            </SyntaxHighlighter>
+          );
+        }
+      },
+    },
+  };
 
   useEffect(() => {
     scrollToTop();
@@ -30,7 +47,7 @@ const BlogPost = () => {
   }
 
   const renderContent = (content) => {
-    return documentToReactComponents(content);
+    return documentToReactComponents(content, options);
   };
 
   return (
@@ -47,7 +64,7 @@ const BlogPost = () => {
       <h2>Related Posts</h2>
       <div className="related-posts-container">
         {relatedPosts.map((post) => (
-          <Post post={post} />
+          <Post key={post.sys.id} post={post} />
         ))}
       </div>
     </div>
