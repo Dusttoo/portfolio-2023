@@ -28,7 +28,6 @@ const BlogPost = () => {
         } else if (
           node.data.target.sys.contentType.sys.id === "componentRichImage"
         ) {
-          console.log(node.data.target.fields.image.fields.file)
           return (
             <ComponentRichImage
               url={node.data.target.fields.image.fields.file.url}
