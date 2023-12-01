@@ -9,6 +9,7 @@ import "../styles/BlogPost.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Helmet } from "react-helmet";
+import ComponentRichImage from "./ComponentRichImage";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -23,6 +24,16 @@ const BlogPost = () => {
             <SyntaxHighlighter language="javascript" style={coldarkDark}>
               {node.data.target.fields.code}
             </SyntaxHighlighter>
+          );
+        } else if (
+          node.data.target.sys.contentType.sys.id === "componentRichImage"
+        ) {
+          console.log(node.data.target.fields.image.fields.file)
+          return (
+            <ComponentRichImage
+              url={node.data.target.fields.image.fields.file.url}
+              alt={node.data.target.fields.image.fields.description}
+            />
           );
         }
       },
