@@ -8,6 +8,7 @@ import Post from "../components/Post";
 import "../styles/BlogPost.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Helmet } from "react-helmet";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -59,23 +60,41 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="blog-post-container">
-      <h1 className="blog-post-title">{post.title}</h1>
-      {post.featuredImage && post.featuredImage.fields.file.url && (
-        <img
-          className="blog-post-image"
-          src={post.featuredImage.fields.file.url}
-          alt={post.title}
+    <>
+      <Helmet>
+        <title>{post.shortTitle}</title>
+        <meta name="description" content={post.description} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.shortDescription} />
+        <meta
+          property="og:image"
+          content={post.featuredImage.fields.file.url}
         />
-      )}
-      <div className="blog-post-content">{renderContent(post.content)}</div>
-      <h2>Related Posts</h2>
-      <div className="related-posts-container">
-        {relatedPosts.map((post) => (
-          <Post key={post.sys.id} post={post} />
-        ))}
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.shortDescription} />
+        <meta
+          name="twitter:image"
+          content={post.featuredImage.fields.file.url}
+        />
+      </Helmet>
+      <div className="blog-post-container">
+        <h1 className="blog-post-title">{post.title}</h1>
+        {post.featuredImage && post.featuredImage.fields.file.url && (
+          <img
+            className="blog-post-image"
+            src={post.featuredImage.fields.file.url}
+            alt={post.title}
+          />
+        )}
+        <div className="blog-post-content">{renderContent(post.content)}</div>
+        <h2>Related Posts</h2>
+        <div className="related-posts-container">
+          {relatedPosts.map((post) => (
+            <Post key={post.sys.id} post={post} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
