@@ -10,9 +10,10 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const BlogPost = () => {
-  const { postId } = useParams();
+  const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
+  console.log(slug);
 
   const options = {
     renderNode: {
@@ -34,13 +35,20 @@ const BlogPost = () => {
 
   useEffect(() => {
     contentfulClient
-      .getEntry(postId)
-      .then((entry) => {
-        setPost(entry.fields);
-        setRelatedPosts(entry.fields.relatedBlogPosts.splice(0, 2));
+      .getEntries({
+        "fields.slug": slug,
+        content_type: "pageBlogPost",
+      })
+      .then((response) => {
+        if (response.items.length > 0) {
+          setPost(response.items[0].fields);
+          setRelatedPosts(
+            response.items[0].fields.relatedBlogPosts.splice(0, 2)
+          );
+        }
       })
       .catch(console.error);
-  }, [postId]);
+  }, [slug]);
 
   if (!post) {
     return <div className="blog-post-container">Loading...</div>;

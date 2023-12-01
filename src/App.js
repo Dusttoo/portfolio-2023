@@ -104,7 +104,7 @@ const getCurrentSection = () => {
           )}
           <Routes>
             <Route path="/" exact element={<HomePage />} />
-            <Route path="/blog/:postId" element={<BlogPost />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </div>
       </div>
