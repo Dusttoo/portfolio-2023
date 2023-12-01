@@ -62,19 +62,17 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{post.shortTitle}</title>
-        <meta name="description" content={post.description} />
+        <title>{post.shortTitle} - Dusty Mumphrey</title>
+        <meta name="description" content={post.shortDescription} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.shortDescription} />
         <meta
           property="og:image"
           content={post.featuredImage.fields.file.url}
         />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.shortDescription} />
         <meta
-          name="twitter:image"
-          content={post.featuredImage.fields.file.url}
+          property="og:url"
+          content={`https://dustymumphrey.com/#/blog/${post.fields.slug}`}
         />
       </Helmet>
       <div className="blog-post-container">
