@@ -14,7 +14,6 @@ const BlogPost = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
-  console.log(slug);
 
   const options = {
     renderNode: {
@@ -72,7 +71,7 @@ const BlogPost = () => {
         />
         <meta
           property="og:url"
-          content={`https://dustymumphrey.com/#/blog/${post.fields.slug}`}
+          content={`https://dustymumphrey.com/#/blog/${slug}`}
         />
       </Helmet>
       <div className="blog-post-container">

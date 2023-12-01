@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { truncateTitle, formatDate } from "../utils";
 function Post({ post }) {
-  console.log(post.fields)
   return (
     <article key={post.sys.id} className="blog-post">
       {post.fields.featuredImage.fields.file.url && (
