@@ -1,5 +1,6 @@
 import React from "react";
 import portfolioImage from '../assets/portfolio.png'
+import pawmeetImage from '../assets/paw-meet.png'
 import "../styles/Projects.css";
 
 function Projects() {
@@ -8,8 +9,7 @@ function Projects() {
       title: "Paw-Meet",
       description:
         "Social application that implements a scoring algorithm that compares breed traits to a user quiz and calculates the best breed match with 80+% accuracy.",
-      image:
-        "https://camo.githubusercontent.com/842f8fdde5f60bcff4c11be7772ed9f2d3bdc842ab5c583fcb81e1705b6af8f0/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f4a364932534f3543554c394e656562374f452f67697068792e676966",
+      image: pawmeetImage,
       link: "https://github.com/Dusttoo/PawMeet",
       technologies: ["React", "Redux", "Python", "Flask"],
     },
